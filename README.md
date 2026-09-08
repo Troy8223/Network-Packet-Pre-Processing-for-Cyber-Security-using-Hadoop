@@ -2,6 +2,8 @@
 
 Hadoop Streaming (and local) preprocessor that turns PCAP files into tabular flow features for cybersecurity models.
 
+The longer roadmap toward a versioned, windowed IoT ML-IDS feature stage is in [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md).
+
 **Which columns are extracted is configurable.** Training and detection jobs pick a JSON profile instead of changing `mapper.py` / `reducer.py`. Add fields to the catalog when a new model needs them.
 
 ## Feature profiles
