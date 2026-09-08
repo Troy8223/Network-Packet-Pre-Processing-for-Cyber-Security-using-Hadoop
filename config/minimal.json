@@ -1,0 +1,26 @@
+{
+  "schema_version": "v1",
+  "name": "minimal",
+  "description": "Smallest useful vector: who talked, protocol, packets, bytes",
+  "extends": "default",
+  "include": {
+    "packet": [
+      "ts",
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol",
+      "ip_len"
+    ],
+    "flow": [
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol",
+      "packets",
+      "bytes"
+    ]
+  }
+}

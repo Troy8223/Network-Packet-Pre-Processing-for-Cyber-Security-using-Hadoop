@@ -1,0 +1,39 @@
+{
+  "schema_version": "v1",
+  "name": "legacy",
+  "description": "Closest field set to the original mapper line (3-tuple key, frame length as size)",
+  "input": {
+    "mode": "hdfs_paths"
+  },
+  "key_fields": ["src_ip", "dest_ip", "protocol"],
+  "bidirectional": false,
+  "size_field": "frame_len",
+  "include": {
+    "packet": [
+      "ts",
+      "iat",
+      "frame_len",
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol_type",
+      "protocol_name"
+    ],
+    "flow": [
+      "last_ts",
+      "duration",
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol_type",
+      "protocol",
+      "packets",
+      "bytes"
+    ]
+  },
+  "output": {
+    "format": "csv"
+  }
+}
