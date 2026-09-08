@@ -84,15 +84,7 @@ def test_local_cli_profile_changes_header(tiny_pcap, tmp_path):
 
 def test_mapper_reducer_scripts(tiny_pcap, tmp_path):
     env = os.environ.copy()
-    env["FEATURE_PROFILE"] = "minimal"
     env["PYTHONPATH"] = ROOT
-    mapped = subprocess.check_output(
-        [sys.executable, os.path.join(ROOT, "mapper.py"), "--profile", "minimal"],
-        input=(tiny_pcap + "\n").encode(),
-        env=env,
-        cwd=ROOT,
-    )
-    # mapper default profile uses hdfs_paths; force local via argv config
     cfg_path = tmp_path / "local_min.json"
     cfg_path.write_text(json.dumps({
         "extends": "minimal",
