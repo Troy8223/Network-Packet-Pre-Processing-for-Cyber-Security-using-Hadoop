@@ -1,0 +1,43 @@
+{
+  "schema_version": "v1",
+  "name": "default",
+  "description": "5-tuple flows with honest sizes, duration, and packet/byte counts",
+  "input": {
+    "mode": "hdfs_paths"
+  },
+  "key_fields": ["src_ip", "dest_ip", "protocol", "src_port", "dest_port"],
+  "bidirectional": false,
+  "size_field": "ip_len",
+  "iat_skip_first": true,
+  "include": {
+    "packet": [
+      "ts",
+      "iat",
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol",
+      "protocol_type",
+      "ip_len",
+      "frame_len",
+      "payload_len"
+    ],
+    "flow": [
+      "first_ts",
+      "last_ts",
+      "duration",
+      "src_ip",
+      "dest_ip",
+      "src_port",
+      "dest_port",
+      "protocol",
+      "protocol_type",
+      "packets",
+      "bytes"
+    ]
+  },
+  "output": {
+    "format": "csv"
+  }
+}
